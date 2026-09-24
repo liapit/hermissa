@@ -102,7 +102,7 @@ function Hero() {
       <img
         src={heroImg}
         alt="Melissa — Pro Makeup Artist HERMISSA"
-        className="absolute inset-0 h-full w-full object-cover object-[37.5%_30%] opacity-90"
+        className="absolute inset-0 h-full w-full object-cover object-[37.5%_30%] opacity-90 landscape:object-[37.5%_18%]"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
