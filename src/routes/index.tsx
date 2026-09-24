@@ -324,7 +324,7 @@ function Contact() {
           <div className="hairline my-8 w-40" />
           <p className="text-base font-light leading-relaxed text-muted-foreground">
             Du planst eine Show, ein Shooting oder eine Kampagne? Schreib mir
-            kurz deines Anlasses — ich melde mich in der Regel innerhalb von 24
+            kurz zu deinem Anlass — ich melde mich in der Regel innerhalb von 24
             Stunden.
           </p>
           <div className="mt-10 space-y-3 text-sm text-muted-foreground">
