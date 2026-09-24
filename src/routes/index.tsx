@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 
-import hero from "@/assets/hero.jpg";
-import logo from "@/assets/hm-logo.png";
+import heroAsset from "@/assets/hero.jpg.asset.json";
+import logoAsset from "@/assets/hm-logo.png.asset.json";
+import wordmarkAsset from "@/assets/hermissa-wordmark.png.asset.json";
 import about from "@/assets/about.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -57,17 +58,21 @@ function Nav() {
   return (
     <header className="nav-blur fixed inset-x-0 top-0 z-50 border-b border-border">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="flex items-center gap-3.5">
+        <a href="#top" className="flex items-center gap-3">
           <img
-            src={logo}
+            src={logoAsset.url}
             alt="HERMISSA HM Monogramm"
             width={34}
             height={34}
             className="h-[34px] w-[34px] object-contain"
           />
-          <span className="wordmark text-sm text-foreground sm:text-base">
-            Hermissa
-          </span>
+          <img
+            src={wordmarkAsset.url}
+            alt="HERMISSA"
+            width={1402}
+            height={232}
+            className="h-3 w-auto sm:h-3.5"
+          />
         </a>
         <nav className="hidden items-center gap-10 md:flex">
           {NAV.map((item) => (
@@ -95,9 +100,9 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-screen">
       <img
-        src={hero}
-        alt="Editorial Beauty Look von HERMISSA"
-        className="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-90"
+        src={heroAsset.url}
+        alt="Melissa — Pro Makeup Artist HERMISSA"
+        className="absolute inset-0 h-full w-full object-cover object-[62%_25%] opacity-90"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
@@ -109,7 +114,7 @@ function Hero() {
             Beauty,
             <br />
             Editorial
-            <span className="text-primary">&amp;</span>
+            <span className="text-primary"> &amp;</span>
             <br />
             Fashion
           </h1>
@@ -427,14 +432,21 @@ function Footer() {
     <footer className="border-t border-border py-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center lg:px-10">
         <img
-          src={logo}
+          src={logoAsset.url}
           alt="HERMISSA HM Monogramm"
           width={44}
           height={44}
           loading="lazy"
           className="h-11 w-11 object-contain"
         />
-        <span className="wordmark text-sm text-foreground">Hermissa</span>
+        <img
+          src={wordmarkAsset.url}
+          alt="HERMISSA"
+          width={1402}
+          height={232}
+          loading="lazy"
+          className="h-4 w-auto"
+        />
         <p className="text-[0.65rem] tracking-[0.3em] uppercase text-muted-foreground">
           Makeup Artist · Based in Switzerland
         </p>
