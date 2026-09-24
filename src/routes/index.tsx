@@ -149,7 +149,7 @@ function Ticker() {
   const row = [...items, ...items];
   return (
     <div className="overflow-hidden border-y border-border py-5">
-      <div className="flex w-max animate-[marquee_36s_linear_infinite] gap-0">
+      <div className="flex w-max animate-[marquee_90s_linear_infinite] gap-0">
         {[0, 1].map((half) => (
           <div key={half} className="flex shrink-0">
             {row.map((item, i) => (
