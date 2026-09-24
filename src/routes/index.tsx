@@ -114,7 +114,7 @@ function Hero() {
             Beauty,
             <br />
             Editorial
-            <span className="text-primary">&amp;</span>
+            <span className="text-primary"> &amp;</span>
             <br />
             Fashion
           </h1>
