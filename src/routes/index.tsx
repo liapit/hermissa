@@ -145,8 +145,8 @@ function Hero() {
 }
 
 function Ticker() {
-  const items = ["Fashion Weeks", "Editorial", "Commercial", "Campaigns", "Backstage"];
-  const row = [...items, ...items, ...items];
+  const items = ["Fashion Shows", "Editorial", "Hochzeiten", "Mode Fotoshootings", "Commercial", "Backstage"];
+  const row = [...items, ...items];
   return (
     <div className="overflow-hidden border-y border-border py-5">
       <div className="flex w-max animate-[marquee_36s_linear_infinite] gap-0">
