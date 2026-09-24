@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 
-import heroAsset from "@/assets/hero.jpg.asset.json";
-import logoAsset from "@/assets/hm-logo.png.asset.json";
-import wordmarkAsset from "@/assets/hermissa-wordmark.png.asset.json";
+import heroImg from "@/assets/hero.jpg";
+import logoImg from "@/assets/hm-logo.png";
+import wordmarkImg from "@/assets/hermissa-wordmark.png";
 import about from "@/assets/about.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -60,14 +60,14 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a href="#top" className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={logoImg}
             alt="HERMISSA HM Monogramm"
             width={34}
             height={34}
             className="h-[34px] w-[34px] object-contain"
           />
           <img
-            src={wordmarkAsset.url}
+            src={wordmarkImg}
             alt="HERMISSA"
             width={1402}
             height={232}
@@ -100,7 +100,7 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-screen">
       <img
-        src={heroAsset.url}
+        src={heroImg}
         alt="Melissa — Pro Makeup Artist HERMISSA"
         className="absolute inset-0 h-full w-full object-cover object-[62%_25%] opacity-90"
       />
@@ -373,7 +373,7 @@ function Footer() {
     <footer className="border-t border-border py-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center lg:px-10">
         <img
-          src={logoAsset.url}
+          src={logoImg}
           alt="HERMISSA HM Monogramm"
           width={44}
           height={44}
@@ -381,7 +381,7 @@ function Footer() {
           className="h-11 w-11 object-contain"
         />
         <img
-          src={wordmarkAsset.url}
+          src={wordmarkImg}
           alt="HERMISSA"
           width={1402}
           height={232}
