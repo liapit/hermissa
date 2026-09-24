@@ -98,11 +98,11 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen">
+    <section id="top" className="relative min-h-screen overflow-hidden">
       <img
         src={heroImg}
         alt="Melissa — Pro Makeup Artist HERMISSA"
-        className="absolute left-1/2 top-0 h-auto w-auto min-h-full min-w-[133.33%] -translate-x-[37.5%] opacity-90 landscape:-translate-y-[9%]"
+        className="absolute inset-0 h-full w-full object-cover object-[37.5%_30%] opacity-90 landscape:object-[37.5%_18%]"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
