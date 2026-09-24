@@ -265,7 +265,7 @@ function Contact() {
     "w-full border border-input bg-transparent px-4 py-3 text-sm font-light text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-ring";
 
   return (
-    <section id="kontakt" className="scroll-mt-20 py-24 lg:py-32">
+    <section id="kontakt" className="scroll-mt-20 py-24 lg:py-40">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:px-10">
         <div>
           <p className="overline mb-4">Kontakt</p>
@@ -274,28 +274,21 @@ function Contact() {
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <div className="hairline my-8 w-40" />
           <p className="text-base font-light leading-relaxed text-muted-foreground">
             Du planst eine Show, ein Shooting oder eine Kampagne? Schreib mir
             kurz zu deinem Anlass — ich melde mich in der Regel innerhalb von 24
             Stunden.
           </p>
-          <div className="mt-10 space-y-3 text-sm text-muted-foreground">
-            <p>
-              <span className="text-primary">✦</span> Based in Switzerland
-            </p>
-            <p>
-              <span className="text-primary">✦</span>{" "}
-              <a
-                href="https://instagram.com/hermissamakeup"
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-primary"
-              >
-                Instagram — @hermissamakeup
-              </a>
-            </p>
-          </div>
+          <p className="mt-8 text-sm text-muted-foreground">
+            <a
+              href="https://instagram.com/hermissamakeup"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              Instagram — @hermissamakeup
+            </a>
+          </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid gap-5 sm:grid-cols-2">
@@ -395,10 +388,6 @@ function Footer() {
           loading="lazy"
           className="h-4 w-auto"
         />
-        <p className="text-[0.65rem] tracking-[0.3em] uppercase text-muted-foreground">
-          Makeup Artist · Based in Switzerland
-        </p>
-        <div className="hairline w-40" />
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} HERMISSA — All rights reserved
         </p>
@@ -413,7 +402,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Ticker />
         <Portfolio />
         <About />
         <Contact />
