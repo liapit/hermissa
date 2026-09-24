@@ -109,8 +109,7 @@ function Hero() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 lg:px-10">
         <div className="max-w-2xl pt-24">
-          <p className="overline mb-6">Makeup Artist · Based in Switzerland</p>
-          <h1 className="font-display text-6xl leading-[1.05] text-foreground sm:text-7xl lg:text-8xl">
+          <h1 className="font-display text-6xl leading-[1.08] text-foreground sm:text-7xl lg:text-8xl">
             Beauty,
             <br />
             Editorial
@@ -118,54 +117,21 @@ function Hero() {
             <br />
             Fashion
           </h1>
-          <div className="hairline my-8 w-40" />
-          <p className="max-w-md text-base font-light leading-relaxed text-muted-foreground">
+          <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-muted-foreground">
             Melissa — Pro Makeup Artist für Fashion Shows, Shootings und
-            Campaigns. Make-up, das auf dem Runway und durch die Kamera
-            trägt.
+            Campaigns. Based in Switzerland.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div className="mt-12">
             <a
               href="#portfolio"
               className="bg-primary px-8 py-3.5 text-[0.7rem] tracking-[0.3em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
             >
               Portfolio ansehen
             </a>
-            <a
-              href="#kontakt"
-              className="border border-border px-8 py-3.5 text-[0.7rem] tracking-[0.3em] uppercase text-foreground transition-colors hover:border-primary hover:text-primary"
-            >
-              Booking anfragen
-            </a>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Ticker() {
-  const items = ["Fashion Shows", "Editorial", "Hochzeiten", "Mode Fotoshootings", "Commercial", "Backstage"];
-  const row = [...items, ...items];
-  return (
-    <div className="overflow-hidden border-y border-border py-5">
-      <div className="flex w-max animate-[marquee_90s_linear_infinite] gap-0">
-        {[0, 1].map((half) => (
-          <div key={half} className="flex shrink-0">
-            {row.map((item, i) => (
-              <span
-                key={`${half}-${i}`}
-                className="wordmark flex items-center gap-10 px-10 text-xs text-muted-foreground"
-              >
-                {item}
-                <span className="text-primary">✦</span>
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-      <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
-    </div>
   );
 }
 
@@ -177,7 +143,7 @@ function SectionHeading({
   title: string;
 }) {
   return (
-    <div className="mb-14 text-center">
+    <div className="mb-16 text-center lg:mb-24">
       <p className="overline mb-4">{overline}</p>
       <h2 className="font-display text-4xl text-foreground sm:text-5xl">
         {title}
@@ -217,10 +183,10 @@ function WorkCard({
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="scroll-mt-20 py-24 lg:py-32">
+    <section id="portfolio" className="scroll-mt-20 py-24 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading overline="Ausgewählte Arbeiten" title="Portfolio" />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {WORKS.map((work) => (
             <WorkCard key={work.title} work={work} />
           ))}
@@ -243,30 +209,23 @@ function Portfolio() {
 
 function About() {
   return (
-    <section
-      id="ueber-mich"
-      className="scroll-mt-20 border-y border-border bg-card/40 py-24 lg:py-32"
-    >
+    <section id="ueber-mich" className="scroll-mt-20 py-24 lg:py-40">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
-        <div className="relative">
-          <div className="absolute -left-4 -top-4 h-full w-full border border-primary/40" />
-          <img
-            src={about}
-            alt="Melissa — Pro Makeup Artist HERMISSA"
-            loading="lazy"
-            width={912}
-            height={1200}
-            className="relative aspect-[3/4] w-full object-cover"
-          />
-        </div>
+        <img
+          src={about}
+          alt="Melissa — Pro Makeup Artist HERMISSA"
+          loading="lazy"
+          width={912}
+          height={1200}
+          className="aspect-[3/4] w-full object-cover"
+        />
         <div>
           <p className="overline mb-4">Über mich</p>
           <h2 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
             Melissa —<br />
             <span className="text-primary">Pro Makeup Artist</span>
           </h2>
-          <div className="hairline my-8 w-40" />
-          <p className="text-base font-light leading-relaxed text-muted-foreground">
+          <p className="mt-8 text-base font-light leading-relaxed text-muted-foreground">
             Based in Switzerland arbeite ich zwischen Beauty, Commercial und
             Editorial — von backstage an Fashion Shows über Kampagnen-Shootings
             bis zu Cover-Looks. Meine Arbeit lebt von präziser Haut-Optik,
@@ -278,17 +237,6 @@ function About() {
             oder ein Editorial mit klarer Vision — ich bringe Ruhe, Tempo und
             einen sicheren Blick fürs Gesamtbild mit.
           </p>
-          <ul className="mt-10 grid grid-cols-1 gap-4 text-[0.7rem] tracking-[0.3em] uppercase text-muted-foreground sm:grid-cols-3">
-            <li className="border border-border px-4 py-3 text-center">
-              Beauty
-            </li>
-            <li className="border border-border px-4 py-3 text-center">
-              Editorial
-            </li>
-            <li className="border border-border px-4 py-3 text-center">
-              Commercial
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -317,7 +265,7 @@ function Contact() {
     "w-full border border-input bg-transparent px-4 py-3 text-sm font-light text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-ring";
 
   return (
-    <section id="kontakt" className="scroll-mt-20 py-24 lg:py-32">
+    <section id="kontakt" className="scroll-mt-20 py-24 lg:py-40">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:px-10">
         <div>
           <p className="overline mb-4">Kontakt</p>
@@ -326,28 +274,21 @@ function Contact() {
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <div className="hairline my-8 w-40" />
           <p className="text-base font-light leading-relaxed text-muted-foreground">
             Du planst eine Show, ein Shooting oder eine Kampagne? Schreib mir
             kurz zu deinem Anlass — ich melde mich in der Regel innerhalb von 24
             Stunden.
           </p>
-          <div className="mt-10 space-y-3 text-sm text-muted-foreground">
-            <p>
-              <span className="text-primary">✦</span> Based in Switzerland
-            </p>
-            <p>
-              <span className="text-primary">✦</span>{" "}
-              <a
-                href="https://instagram.com/hermissamakeup"
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-primary"
-              >
-                Instagram — @hermissamakeup
-              </a>
-            </p>
-          </div>
+          <p className="mt-8 text-sm text-muted-foreground">
+            <a
+              href="https://instagram.com/hermissamakeup"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              Instagram — @hermissamakeup
+            </a>
+          </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid gap-5 sm:grid-cols-2">
@@ -447,10 +388,6 @@ function Footer() {
           loading="lazy"
           className="h-4 w-auto"
         />
-        <p className="text-[0.65rem] tracking-[0.3em] uppercase text-muted-foreground">
-          Makeup Artist · Based in Switzerland
-        </p>
-        <div className="hairline w-40" />
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} HERMISSA — All rights reserved
         </p>
@@ -465,7 +402,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Ticker />
         <Portfolio />
         <About />
         <Contact />
