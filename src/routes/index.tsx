@@ -240,8 +240,8 @@ function InstagramFeed() {
           className="group hidden shrink-0 flex-col items-center gap-6 pt-2 sm:flex"
           aria-label="HERMISSA auf Instagram folgen"
         >
-          <InstagramIcon className="h-12 w-12 text-foreground transition-colors group-hover:text-primary" />
-          <span className="rotate-180 text-lg tracking-[0.55em] uppercase text-muted-foreground transition-colors group-hover:text-primary [writing-mode:vertical-rl]">
+          <InstagramIcon className="h-14 w-14 text-foreground transition-colors group-hover:text-primary" />
+          <span className="rotate-180 text-2xl tracking-[0.6em] uppercase text-muted-foreground transition-colors group-hover:text-primary [writing-mode:vertical-rl]">
             Follow me
           </span>
         </a>
