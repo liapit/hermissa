@@ -370,79 +370,74 @@ function Contact() {
             </a>
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="name"
-                className="overline mb-2 block text-[0.6rem]"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                placeholder="Dein Name"
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="overline mb-2 block text-[0.6rem]"
-              >
-                E-Mail
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="name@beispiel.ch"
-                className={inputClass}
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="anlass" className="overline mb-2 block text-[0.6rem]">
-              Anlass
-            </label>
-            <select id="anlass" name="anlass" className={inputClass} defaultValue="Fashion Show">
-              <option className="bg-background">Fashion Show</option>
-              <option className="bg-background">Editorial / Shooting</option>
-              <option className="bg-background">Commercial / Kampagne</option>
-              <option className="bg-background">Sonstiges</option>
-            </select>
-          </div>
-          <div>
-            <label
-              htmlFor="nachricht"
-              className="overline mb-2 block text-[0.6rem]"
-            >
-              Nachricht
-            </label>
-            <textarea
-              id="nachricht"
-              name="nachricht"
-              required
-              rows={6}
-              placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
-              className={`${inputClass} resize-none`}
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
-          >
-            Anfrage senden
-          </button>
-          {sent && (
-            <p className="text-center text-sm text-muted-foreground">
-              Dein E-Mail-Programm wurde mit der Anfrage geöffnet — vielen Dank!
+        {sent ? (
+          <div className="flex min-h-[24rem] items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
+            <p className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
+              Ich freue mich von Ihnen zu hören und{" "}
+              <span className="text-primary">
+                melde mich so schnell wie möglich zurück.
+              </span>
             </p>
-          )}
-        </form>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="overline mb-2 block text-[0.6rem]"
+                >
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Dein Name"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="overline mb-2 block text-[0.6rem]"
+                >
+                  E-Mail
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="name@beispiel.ch"
+                  className={inputClass}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="nachricht"
+                className="overline mb-2 block text-[0.6rem]"
+              >
+                Nachricht
+              </label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                required
+                rows={6}
+                placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
+            >
+              Anfrage senden
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
