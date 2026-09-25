@@ -329,11 +329,10 @@ function Contact() {
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") ?? "");
     const email = String(data.get("email") ?? "");
-    const anlass = String(data.get("anlass") ?? "");
     const nachricht = String(data.get("nachricht") ?? "");
-    const subject = `Booking-Anfrage: ${anlass} — ${name}`;
-    const body = `Hallo Melissa\n\n${nachricht}\n\nAnlass: ${anlass}\nName: ${name}\nE-Mail: ${email}`;
-    window.location.href = `mailto:bookings@hermissa.ch?subject=${encodeURIComponent(
+    const subject = `Booking-Anfrage — ${name}`;
+    const body = `Hallo Melissa\n\n${nachricht}\n\nName: ${name}\nE-Mail: ${email}`;
+    window.location.href = `mailto:melissa@hermissa.ch?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
     setSent(true);
@@ -352,12 +351,15 @@ function Contact() {
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <p className="text-base font-light leading-relaxed text-muted-foreground">
-            Du planst eine Show, ein Shooting oder eine Kampagne? Schreib mir
-            kurz zu deinem Anlass — ich melde mich in der Regel innerhalb von 24
-            Stunden.
-          </p>
           <p className="mt-8 text-sm text-muted-foreground">
+            <a
+              href="mailto:melissa@hermissa.ch"
+              className="transition-colors hover:text-primary"
+            >
+              Email — melissa@hermissa.ch
+            </a>
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
             <a
               href="https://instagram.com/hermissamakeup"
               target="_blank"
@@ -368,79 +370,74 @@ function Contact() {
             </a>
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="name"
-                className="overline mb-2 block text-[0.6rem]"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                placeholder="Dein Name"
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="overline mb-2 block text-[0.6rem]"
-              >
-                E-Mail
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="name@beispiel.ch"
-                className={inputClass}
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="anlass" className="overline mb-2 block text-[0.6rem]">
-              Anlass
-            </label>
-            <select id="anlass" name="anlass" className={inputClass} defaultValue="Fashion Show">
-              <option className="bg-background">Fashion Show</option>
-              <option className="bg-background">Editorial / Shooting</option>
-              <option className="bg-background">Commercial / Kampagne</option>
-              <option className="bg-background">Sonstiges</option>
-            </select>
-          </div>
-          <div>
-            <label
-              htmlFor="nachricht"
-              className="overline mb-2 block text-[0.6rem]"
-            >
-              Nachricht
-            </label>
-            <textarea
-              id="nachricht"
-              name="nachricht"
-              required
-              rows={6}
-              placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
-              className={`${inputClass} resize-none`}
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
-          >
-            Anfrage senden
-          </button>
-          {sent && (
-            <p className="text-center text-sm text-muted-foreground">
-              Dein E-Mail-Programm wurde mit der Anfrage geöffnet — vielen Dank!
+        {sent ? (
+          <div className="flex min-h-[24rem] items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
+            <p className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
+              Ich freue mich von Ihnen zu hören und{" "}
+              <span className="text-primary">
+                melde mich so schnell wie möglich zurück.
+              </span>
             </p>
-          )}
-        </form>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="overline mb-2 block text-[0.6rem]"
+                >
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Dein Name"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="overline mb-2 block text-[0.6rem]"
+                >
+                  E-Mail
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="name@beispiel.ch"
+                  className={inputClass}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="nachricht"
+                className="overline mb-2 block text-[0.6rem]"
+              >
+                Nachricht
+              </label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                required
+                rows={6}
+                placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
+            >
+              Anfrage senden
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
