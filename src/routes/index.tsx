@@ -110,7 +110,7 @@ function Hero() {
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-6 lg:px-10">
         <div className="pt-24 text-center">
           <h1 className="font-script text-6xl leading-none text-foreground sm:text-7xl lg:text-8xl">
-            Melissa
+            HERMISSA
           </h1>
           <p className="mt-6 text-[0.7rem] tracking-[0.45em] uppercase text-foreground/90 sm:text-sm sm:tracking-[0.5em]">
             Professional Makeup Artist
