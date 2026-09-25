@@ -143,14 +143,14 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="relative h-[68vh] overflow-hidden sm:h-[72vh]">
+      <div className="relative h-[72vh] overflow-hidden sm:h-[78vh] lg:h-[86vh]">
         <img
           src={heroImg}
           alt="Melissa — Pro Makeup Artist HERMISSA"
-          className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
+          className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_14%]"
         />
-        <div className="absolute inset-0 bg-background/25" />
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(to_top,rgba(10,8,6,0.78)_0%,rgba(10,8,6,0.4)_55%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-background/15" />
+        <div className="absolute inset-x-0 bottom-0 h-[42%] bg-[linear-gradient(to_top,rgba(10,8,6,0.6)_0%,rgba(10,8,6,0.22)_55%,transparent_100%)]" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center sm:pb-20">
           <h1 className="flex items-center">
             <img
@@ -166,7 +166,7 @@ function Hero() {
             Professional Makeup Artist
           </p>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
     </section>
   );
