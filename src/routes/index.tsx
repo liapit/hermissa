@@ -142,12 +142,12 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="relative h-[72vh] overflow-hidden pt-[67px] sm:h-[78vh] lg:h-[86vh]">
+    <section id="top" className="relative overflow-hidden pt-[67px]">
+      <div className="relative h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[calc(100svh-67px)]">
         <img
           src={heroImg}
           alt="Melissa — Pro Makeup Artist HERMISSA"
-          className="absolute inset-0 h-full w-full object-cover object-[37.5%_30%] opacity-90 landscape:object-[37.5%_20%]"
+          className="absolute inset-0 h-full w-full object-cover object-[37.5%_top] opacity-90 md:object-contain md:object-top"
         />
         <div className="absolute inset-0 bg-background/10" />
         <div className="absolute inset-x-0 bottom-0 h-[32%] bg-[linear-gradient(to_top,rgba(10,8,6,0.45)_0%,rgba(10,8,6,0.15)_55%,transparent_100%)]" />
