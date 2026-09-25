@@ -441,6 +441,30 @@ function Contact() {
             </div>
             <div>
               <label
+                htmlFor="phone"
+                className="overline mb-2 block text-[0.6rem]"
+              >
+                Telefon (optional)
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                maxLength={40}
+                placeholder="+41 …"
+                className={inputClass}
+              />
+            </div>
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+            <div>
+              <label
                 htmlFor="nachricht"
                 className="overline mb-2 block text-[0.6rem]"
               >
@@ -450,16 +474,23 @@ function Contact() {
                 id="nachricht"
                 name="nachricht"
                 required
+                maxLength={5000}
                 rows={6}
                 placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
                 className={`${inputClass} resize-none`}
               />
             </div>
+            {error && (
+              <p role="alert" className="border border-destructive/50 px-4 py-3 text-sm text-destructive">
+                {error}
+              </p>
+            )}
             <button
               type="submit"
-              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
+              disabled={sending}
+              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Anfrage senden
+              {sending ? "Wird gesendet …" : "Anfrage senden"}
             </button>
           </form>
         )}
