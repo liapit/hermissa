@@ -468,6 +468,7 @@ function Index() {
       <main>
         <Hero />
         <Portfolio />
+        <InstagramFeed />
         <About />
         <Contact />
       </main>
