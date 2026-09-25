@@ -228,7 +228,7 @@ function InstagramFeed() {
           aria-label="HERMISSA auf Instagram folgen"
         >
           <InstagramIcon className="h-7 w-7 text-foreground transition-colors group-hover:text-primary" />
-          <span className="text-[0.7rem] tracking-[0.45em] uppercase text-muted-foreground transition-colors group-hover:text-primary [writing-mode:vertical-rl]">
+          <span className="rotate-180 text-[0.7rem] tracking-[0.45em] uppercase text-muted-foreground transition-colors group-hover:text-primary [writing-mode:vertical-rl]">
             Follow me
           </span>
         </a>
