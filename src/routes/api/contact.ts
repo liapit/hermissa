@@ -37,7 +37,7 @@ export const Route = createFileRoute("/api/contact")({
           process.env["CONTACT_FROM_EMAIL"] ?? "HERMISSA <kontakt@hermissa.ch>";
         if (!apiKey || !to) {
           console.error("Contact: RESEND_API_KEY or CONTACT_TO_EMAIL missing");
-          return json({ error: "server_config" }, 503);
+          return json({ ok: false, error: "server_config" });
         }
 
         let raw: unknown;
@@ -80,7 +80,7 @@ ${rows.map(([k, v]) => `<p><strong>${k}:</strong> ${escapeHtml(v)}</p>`).join(""
         });
         if (!res.ok) {
           console.error(`Resend failed [${res.status}]: ${await res.text()}`);
-          return json({ error: "send_failed" }, 502);
+          return json({ ok: false, error: "send_failed" });
         }
         return json({ ok: true });
       },

@@ -375,11 +375,14 @@ function Contact() {
           website: String(data.get("website") ?? ""),
         }),
       });
-      if (res.ok) {
+      const body = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (res.ok && body.ok) {
         setSent(true);
         return;
       }
-      const body = (await res.json().catch(() => ({}))) as { error?: string };
       setError(
         body.error === "invalid_input"
           ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail, Telefon nur mit Ziffern und Nachricht)."
