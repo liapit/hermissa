@@ -425,7 +425,7 @@ function Contact() {
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <p className="mt-8 text-sm text-muted-foreground">
+          <p className="mt-8 break-words text-sm text-muted-foreground">
             <a
               href="mailto:melissa@hermissa.ch"
               className="transition-colors hover:text-primary"
@@ -455,7 +455,7 @@ function Contact() {
           </p>
         </div>
         {sent ? (
-          <div className="flex min-h-[24rem] items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
+          <div className="flex min-h-[24rem] min-w-0 items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
             <p className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
               Ich freue mich von Ihnen zu hören und{" "}
               <span className="text-primary">
@@ -464,7 +464,7 @@ function Contact() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="min-w-0 space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label
