@@ -51,10 +51,10 @@ export const Route = createFileRoute("/api/contact")({
         const { name, email, phone, message, website } = parsed.data;
         if (website) return json({ ok: true }); // bot
 
-        const rows = [
+        const rows: [string, string][] = [
           ["Name", name],
           ["E-Mail", email],
-          ...(phone ? [["Telefon", phone]] : []),
+          ...(phone ? [["Telefon", phone] as [string, string]] : []),
         ];
         const text = `${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\nNachricht:\n${message}`;
         const html = `<div style="font-family:Arial,sans-serif;color:#111">
