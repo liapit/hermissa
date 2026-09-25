@@ -323,19 +323,44 @@ function About() {
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (sending) return;
     const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const nachricht = String(data.get("nachricht") ?? "");
-    const subject = `Booking-Anfrage — ${name}`;
-    const body = `Hallo Melissa\n\n${nachricht}\n\nName: ${name}\nE-Mail: ${email}`;
-    window.location.href = `mailto:melissa@hermissa.ch?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          phone: String(data.get("phone") ?? ""),
+          message: String(data.get("nachricht") ?? ""),
+          website: String(data.get("website") ?? ""),
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+        return;
+      }
+      const body = (await res.json().catch(() => ({}))) as { error?: string };
+      setError(
+        body.error === "invalid_input"
+          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail und Nachricht)."
+          : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
+      );
+    } catch {
+      setError(
+        "Keine Verbindung möglich. Bitte prüfe deine Internetverbindung und versuche es erneut.",
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
