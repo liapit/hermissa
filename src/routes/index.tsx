@@ -9,6 +9,7 @@ import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
+import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import insta1 from "@/assets/insta-1.jpg";
 import insta2 from "@/assets/insta-2.jpg";
