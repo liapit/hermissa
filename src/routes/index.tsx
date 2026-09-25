@@ -142,26 +142,28 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="flex flex-col items-center px-6 pb-10 pt-24 text-center lg:pb-14 lg:pt-28">
-        <h1 className="flex items-center">
-          <img
-            src={wordmarkImg}
-            alt="HERMISSA"
-            width={1402}
-            height={232}
-            className="h-10 w-auto sm:h-14 lg:h-16"
-          />
-        </h1>
-        <p className="mt-5 text-[0.6rem] font-light tracking-[0.45em] uppercase text-muted-foreground sm:text-xs sm:tracking-[0.5em]">
-          Professional Makeup Artist
-        </p>
-      </div>
       <div className="relative h-[68vh] overflow-hidden sm:h-[72vh]">
         <img
           src={heroImg}
           alt="Melissa — Pro Makeup Artist HERMISSA"
           className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
         />
+        <div className="absolute inset-0 bg-background/25" />
+        <div className="absolute inset-x-0 top-1/2 flex -translate-y-1/2 flex-col items-center px-6 text-center">
+          <h1 className="flex items-center">
+            <img
+              src={wordmarkImg}
+              alt="HERMISSA"
+              width={1402}
+              height={232}
+              className="h-12 w-auto sm:h-16 lg:h-20"
+              style={{ filter: "brightness(1.35) contrast(1.05) drop-shadow(0 2px 14px rgba(0,0,0,0.55))" }}
+            />
+          </h1>
+          <p className="mt-6 text-[0.6rem] font-light tracking-[0.45em] uppercase text-foreground/90 sm:text-xs sm:tracking-[0.5em]" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
+            Professional Makeup Artist
+          </p>
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
     </section>
