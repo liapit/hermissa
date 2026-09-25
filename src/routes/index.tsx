@@ -323,19 +323,44 @@ function About() {
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (sending) return;
     const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const nachricht = String(data.get("nachricht") ?? "");
-    const subject = `Booking-Anfrage — ${name}`;
-    const body = `Hallo Melissa\n\n${nachricht}\n\nName: ${name}\nE-Mail: ${email}`;
-    window.location.href = `mailto:melissa@hermissa.ch?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          phone: String(data.get("phone") ?? ""),
+          message: String(data.get("nachricht") ?? ""),
+          website: String(data.get("website") ?? ""),
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+        return;
+      }
+      const body = (await res.json().catch(() => ({}))) as { error?: string };
+      setError(
+        body.error === "invalid_input"
+          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail und Nachricht)."
+          : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
+      );
+    } catch {
+      setError(
+        "Keine Verbindung möglich. Bitte prüfe deine Internetverbindung und versuche es erneut.",
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
@@ -416,6 +441,30 @@ function Contact() {
             </div>
             <div>
               <label
+                htmlFor="phone"
+                className="overline mb-2 block text-[0.6rem]"
+              >
+                Telefon (optional)
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                maxLength={40}
+                placeholder="+41 …"
+                className={inputClass}
+              />
+            </div>
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+            <div>
+              <label
                 htmlFor="nachricht"
                 className="overline mb-2 block text-[0.6rem]"
               >
@@ -425,16 +474,23 @@ function Contact() {
                 id="nachricht"
                 name="nachricht"
                 required
+                maxLength={5000}
                 rows={6}
                 placeholder="Erzähl mir kurz von deinem Projekt, Datum & Ort …"
                 className={`${inputClass} resize-none`}
               />
             </div>
+            {error && (
+              <p role="alert" className="border border-destructive/50 px-4 py-3 text-sm text-destructive">
+                {error}
+              </p>
+            )}
             <button
               type="submit"
-              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
+              disabled={sending}
+              className="w-full bg-primary py-4 text-[0.7rem] tracking-[0.35em] uppercase text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Anfrage senden
+              {sending ? "Wird gesendet …" : "Anfrage senden"}
             </button>
           </form>
         )}
