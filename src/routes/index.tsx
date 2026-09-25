@@ -329,11 +329,10 @@ function Contact() {
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") ?? "");
     const email = String(data.get("email") ?? "");
-    const anlass = String(data.get("anlass") ?? "");
     const nachricht = String(data.get("nachricht") ?? "");
-    const subject = `Booking-Anfrage: ${anlass} — ${name}`;
-    const body = `Hallo Melissa\n\n${nachricht}\n\nAnlass: ${anlass}\nName: ${name}\nE-Mail: ${email}`;
-    window.location.href = `mailto:bookings@hermissa.ch?subject=${encodeURIComponent(
+    const subject = `Booking-Anfrage — ${name}`;
+    const body = `Hallo Melissa\n\n${nachricht}\n\nName: ${name}\nE-Mail: ${email}`;
+    window.location.href = `mailto:melissa@hermissa.ch?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
     setSent(true);
