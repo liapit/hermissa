@@ -434,6 +434,16 @@ function Contact() {
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
             <a
+              href="https://wa.me/41766295056"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              WhatsApp — +41 76 629 50 56
+            </a>
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            <a
               href="https://instagram.com/hermissamakeup"
               target="_blank"
               rel="noreferrer"
@@ -547,6 +557,38 @@ function Contact() {
   );
 }
 
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+      <path d="M9.1 8.3c.15-.35.3-.35.45-.35h.4c.15 0 .35 0 .5.35l.6 1.4c.1.2 0 .4-.1.5l-.5.55c-.1.1-.1.25 0 .4a5.4 5.4 0 0 0 2.4 2.4c.15.1.3.1.4 0l.55-.5c.15-.1.35-.15.5-.1l1.4.6c.35.1.35.35.35.5v.4c0 .15 0 .35-.35.45a2.1 2.1 0 0 1-1.5.15 7 7 0 0 1-4.8-4.8 2.1 2.1 0 0 1 .15-1.5Z" />
+    </svg>
+  );
+}
+
+function WhatsAppFloat() {
+  return (
+    <a
+      href="https://wa.me/41766295056"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Per WhatsApp chatten"
+      className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/70 text-foreground shadow-sm backdrop-blur transition-colors hover:border-primary hover:text-primary"
+    >
+      <WhatsAppIcon className="h-6 w-6" />
+    </a>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-border py-12">
@@ -587,6 +629,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
