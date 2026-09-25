@@ -9,8 +9,13 @@ import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
-import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import insta1 from "@/assets/insta-1.jpg";
+import insta2 from "@/assets/insta-2.jpg";
+import insta3 from "@/assets/insta-3.jpg";
+import insta4 from "@/assets/insta-4.jpg";
+import insta5 from "@/assets/insta-5.jpg";
+import insta6 from "@/assets/insta-6.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
