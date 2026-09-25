@@ -81,20 +81,13 @@ function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center">
           <img
             src={logoImg}
             alt="HERMISSA HM Monogramm"
             width={34}
             height={34}
             className="h-[34px] w-[34px] object-contain"
-          />
-          <img
-            src={wordmarkImg}
-            alt="HERMISSA"
-            width={1402}
-            height={232}
-            className="h-3 w-auto sm:h-3.5"
           />
         </a>
         <nav className="hidden items-center gap-10 md:flex">
@@ -148,24 +141,28 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Melissa — Pro Makeup Artist HERMISSA"
-        className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
-
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-end justify-center px-6 pb-28 lg:px-10 lg:pb-36">
-        <div className="text-center">
-          <h1 className="font-script text-5xl leading-none text-foreground/95 sm:text-6xl lg:text-7xl">
-            HERMISSA
-          </h1>
-          <p className="mt-5 text-[0.6rem] font-light tracking-[0.45em] uppercase text-foreground/75 sm:text-xs sm:tracking-[0.5em]">
-            Professional Makeup Artist
-          </p>
-        </div>
+    <section id="top" className="relative overflow-hidden">
+      <div className="flex flex-col items-center px-6 pb-10 pt-24 text-center lg:pb-14 lg:pt-28">
+        <h1 className="flex items-center">
+          <img
+            src={wordmarkImg}
+            alt="HERMISSA"
+            width={1402}
+            height={232}
+            className="h-10 w-auto sm:h-14 lg:h-16"
+          />
+        </h1>
+        <p className="mt-5 text-[0.6rem] font-light tracking-[0.45em] uppercase text-muted-foreground sm:text-xs sm:tracking-[0.5em]">
+          Professional Makeup Artist
+        </p>
+      </div>
+      <div className="relative h-[68vh] overflow-hidden sm:h-[72vh]">
+        <img
+          src={heroImg}
+          alt="Melissa — Pro Makeup Artist HERMISSA"
+          className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
     </section>
   );
