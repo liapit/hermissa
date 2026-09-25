@@ -11,6 +11,12 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import insta1 from "@/assets/insta-1.jpg";
+import insta2 from "@/assets/insta-2.jpg";
+import insta3 from "@/assets/insta-3.jpg";
+import insta4 from "@/assets/insta-4.jpg";
+import insta5 from "@/assets/insta-5.jpg";
+import insta6 from "@/assets/insta-6.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -177,17 +183,90 @@ function Portfolio() {
             <WorkCard key={work.title} work={work} />
           ))}
         </div>
-        <p className="mt-12 text-center text-sm text-muted-foreground">
-          Mehr Eindrücke auf{" "}
-          <a
-            href="https://instagram.com/hermissamakeup"
-            target="_blank"
-            rel="noreferrer"
-            className="text-primary underline-offset-4 transition-colors hover:text-foreground hover:underline"
-          >
-            Instagram @hermissamakeup
-          </a>
-        </p>
+      </div>
+    </section>
+  );
+}
+
+const INSTA_POSTS = [
+  { src: insta1, alt: "Golden Glow — Instagram Post" },
+  { src: insta2, alt: "Backstage Prep — Instagram Post" },
+  { src: insta3, alt: "Graphic Liner — Instagram Post" },
+  { src: insta4, alt: "Bronze Beauty — Instagram Post" },
+  { src: insta5, alt: "Berry Couture — Instagram Post" },
+  { src: insta6, alt: "Backstage Moments — Instagram Post" },
+];
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
+function InstagramFeed() {
+  return (
+    <section aria-label="Instagram" className="border-y border-border py-24 lg:py-32">
+      <div className="mx-auto flex max-w-7xl gap-10 px-6 lg:gap-16 lg:px-10">
+        <a
+          href="https://instagram.com/hermissamakeup"
+          target="_blank"
+          rel="noreferrer"
+          className="group hidden shrink-0 flex-col items-center gap-6 pt-2 sm:flex"
+          aria-label="HERMISSA auf Instagram folgen"
+        >
+          <InstagramIcon className="h-7 w-7 text-foreground transition-colors group-hover:text-primary" />
+          <span className="text-[0.7rem] tracking-[0.45em] uppercase text-muted-foreground transition-colors group-hover:text-primary [writing-mode:vertical-rl]">
+            Follow me
+          </span>
+        </a>
+        <div className="min-w-0 flex-1">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:gap-4">
+            {INSTA_POSTS.map((post) => (
+              <a
+                key={post.src}
+                href="https://instagram.com/hermissamakeup"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative block overflow-hidden"
+              >
+                <img
+                  src={post.src}
+                  alt={post.alt}
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className="aspect-square w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                />
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-background/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <InstagramIcon className="h-8 w-8 text-foreground" />
+                </span>
+              </a>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href="https://instagram.com/hermissamakeup"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block border border-border px-8 py-3 text-[0.65rem] tracking-[0.35em] uppercase text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              Mehr auf Instagram
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -389,6 +468,7 @@ function Index() {
       <main>
         <Hero />
         <Portfolio />
+        <InstagramFeed />
         <About />
         <Contact />
       </main>
