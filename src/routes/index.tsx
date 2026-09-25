@@ -150,8 +150,8 @@ function Hero() {
           className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
         />
         <div className="absolute inset-0 bg-background/25" />
-        <div className="absolute inset-x-0 top-1/2 h-[80%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(10,8,6,0.62)_0%,rgba(10,8,6,0.38)_45%,transparent_75%)]" />
-        <div className="absolute inset-x-0 top-1/2 flex -translate-y-1/2 flex-col items-center px-6 text-center">
+        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(to_top,rgba(10,8,6,0.78)_0%,rgba(10,8,6,0.4)_55%,transparent_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center sm:pb-20">
           <h1 className="flex items-center">
             <img
               src={wordmarkGoldImg}
@@ -417,15 +417,15 @@ function Contact() {
 
   return (
     <section id="kontakt" className="scroll-mt-20 py-24 lg:py-40">
-      <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:px-10">
-        <div>
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:px-10">
+        <div className="min-w-0">
           <p className="overline mb-4">Kontakt</p>
           <h2 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
             Lass uns
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <p className="mt-8 text-sm text-muted-foreground">
+          <p className="mt-8 break-words text-sm text-muted-foreground">
             <a
               href="mailto:melissa@hermissa.ch"
               className="transition-colors hover:text-primary"
@@ -455,7 +455,7 @@ function Contact() {
           </p>
         </div>
         {sent ? (
-          <div className="flex min-h-[24rem] items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
+          <div className="flex min-h-[24rem] min-w-0 items-center justify-center border border-primary/40 bg-card/40 px-6 py-16 text-center sm:px-12">
             <p className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
               Ich freue mich von Ihnen zu hören und{" "}
               <span className="text-primary">
@@ -464,7 +464,7 @@ function Contact() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="min-w-0 space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label
