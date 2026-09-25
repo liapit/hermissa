@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 import heroImg from "@/assets/hero.jpg";
 import logoImg from "@/assets/hm-logo.png";
@@ -61,8 +61,21 @@ const WORKS = [
 ];
 
 function Nav() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY < 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="nav-blur fixed inset-x-0 top-0 z-50 border-b border-border">
+    <header
+      className={`nav-blur fixed inset-x-0 top-0 z-50 border-b border-border transition-transform duration-500 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a href="#top" className="flex items-center gap-3">
           <img
@@ -108,17 +121,17 @@ function Hero() {
       <img
         src={heroImg}
         alt="Melissa — Pro Makeup Artist HERMISSA"
-        className="absolute inset-0 h-full w-full object-cover object-[37.5%_30%] opacity-90 landscape:object-[37.5%_18%]"
+        className="absolute inset-0 h-full w-full object-cover object-[37.5%_22%] opacity-90 landscape:object-[37.5%_10%]"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-6 lg:px-10">
-        <div className="pt-24 text-center">
-          <h1 className="font-script text-6xl leading-none text-foreground sm:text-7xl lg:text-8xl">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl items-end justify-center px-6 pb-28 lg:px-10 lg:pb-36">
+        <div className="text-center">
+          <h1 className="font-script text-5xl leading-none text-foreground/95 sm:text-6xl lg:text-7xl">
             HERMISSA
           </h1>
-          <p className="mt-6 text-[0.7rem] tracking-[0.45em] uppercase text-foreground/90 sm:text-sm sm:tracking-[0.5em]">
+          <p className="mt-5 text-[0.6rem] font-light tracking-[0.45em] uppercase text-foreground/75 sm:text-xs sm:tracking-[0.5em]">
             Professional Makeup Artist
           </p>
         </div>
