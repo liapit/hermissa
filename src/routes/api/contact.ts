@@ -37,7 +37,7 @@ export const Route = createFileRoute("/api/contact")({
           process.env["CONTACT_FROM_EMAIL"] ?? "HERMISSA <kontakt@hermissa.ch>";
         if (!apiKey || !to) {
           console.error("Contact: RESEND_API_KEY or CONTACT_TO_EMAIL missing");
-          return json({ error: "server_config" }, 500);
+          return json({ error: "server_config" }, 503);
         }
 
         let raw: unknown;
