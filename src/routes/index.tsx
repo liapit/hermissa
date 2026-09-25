@@ -277,6 +277,18 @@ function InstagramFeed() {
           </span>
         </a>
         <div className="min-w-0 flex-1">
+          <a
+            href="https://instagram.com/hermissamakeup"
+            target="_blank"
+            rel="noreferrer"
+            className="group mb-8 flex items-center justify-center gap-4 sm:hidden"
+            aria-label="HERMISSA auf Instagram folgen"
+          >
+            <InstagramIcon className="h-12 w-12 text-foreground transition-colors group-hover:text-primary" />
+            <span className="text-xl tracking-[0.5em] uppercase text-muted-foreground transition-colors group-hover:text-primary">
+              Follow me
+            </span>
+          </a>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:gap-4">
             {INSTA_POSTS.map((post) => (
               <a
