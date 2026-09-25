@@ -62,9 +62,13 @@ const WORKS = [
 
 function Nav() {
   const [visible, setVisible] = useState(true);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY < 40);
+    const onScroll = () => {
+      setVisible(window.scrollY < 40);
+      if (window.scrollY >= 40) setOpen(false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -104,13 +108,40 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#kontakt"
-          className="border border-border px-5 py-2 text-[0.65rem] tracking-[0.3em] uppercase text-foreground transition-colors hover:border-primary hover:text-primary md:hidden"
+        <button
+          type="button"
+          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+          className="relative flex h-10 w-10 items-center justify-center md:hidden"
         >
-          Booking
-        </a>
+          <span
+            className={`absolute h-px w-6 bg-foreground transition-transform duration-300 ${open ? "rotate-45" : "-translate-y-1.5"}`}
+          />
+          <span
+            className={`absolute h-px w-6 bg-foreground transition-opacity duration-300 ${open ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`absolute h-px w-6 bg-foreground transition-transform duration-300 ${open ? "-rotate-45" : "translate-y-1.5"}`}
+          />
+        </button>
       </div>
+      {open && (
+        <nav className="border-t border-border md:hidden">
+          <div className="flex flex-col items-center gap-8 py-10">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="text-xs tracking-[0.35em] uppercase text-foreground transition-colors hover:text-primary"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
@@ -351,8 +382,10 @@ function Contact() {
       const body = (await res.json().catch(() => ({}))) as { error?: string };
       setError(
         body.error === "invalid_input"
-          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail und Nachricht)."
-          : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
+          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail, Telefon nur mit Ziffern und Nachricht)."
+          : body.error === "server_config"
+            ? "Das Formular ist noch nicht fertig eingerichtet. Bitte schreib direkt an melissa@hermissa.ch."
+            : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
       );
     } catch {
       setError(
