@@ -156,7 +156,7 @@ function Hero() {
               alt="HERMISSA"
               width={1402}
               height={232}
-              className="h-12 w-auto brightness-125 sm:h-16 lg:h-20"
+              className="h-12 w-auto sm:h-16 lg:h-20"
               style={{ filter: "brightness(1.35) contrast(1.05) drop-shadow(0 2px 14px rgba(0,0,0,0.55))" }}
             />
           </h1>
