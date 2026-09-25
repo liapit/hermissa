@@ -107,28 +107,14 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 lg:px-10">
-        <div className="max-w-2xl pt-24">
-          <h1 className="font-display text-6xl leading-[1.08] text-foreground sm:text-7xl lg:text-8xl">
-            Beauty,
-            <br />
-            Editorial
-            <span className="text-primary"> &amp;</span>
-            <br />
-            Fashion
+      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-6 lg:px-10">
+        <div className="pt-24 text-center">
+          <h1 className="font-script text-6xl leading-none text-foreground sm:text-7xl lg:text-8xl">
+            Melissa
           </h1>
-          <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-muted-foreground">
-            Melissa — Pro Makeup Artist für Fashion Shows, Shootings und
-            Campaigns. Based in Switzerland.
+          <p className="mt-6 text-[0.7rem] tracking-[0.45em] uppercase text-foreground/90 sm:text-sm sm:tracking-[0.5em]">
+            Professional Makeup Artist
           </p>
-          <div className="mt-12">
-            <a
-              href="#portfolio"
-              className="bg-primary px-8 py-3.5 text-[0.7rem] tracking-[0.3em] uppercase text-primary-foreground transition-opacity hover:opacity-85"
-            >
-              Portfolio ansehen
-            </a>
-          </div>
         </div>
       </div>
     </section>
