@@ -382,8 +382,10 @@ function Contact() {
       const body = (await res.json().catch(() => ({}))) as { error?: string };
       setError(
         body.error === "invalid_input"
-          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail und Nachricht)."
-          : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
+          ? "Bitte überprüfe deine Angaben (Name, gültige E-Mail, Telefon nur mit Ziffern und Nachricht)."
+          : body.error === "server_config"
+            ? "Das Formular ist noch nicht fertig eingerichtet. Bitte schreib direkt an melissa@hermissa.ch."
+            : "Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut oder schreib direkt an melissa@hermissa.ch.",
       );
     } catch {
       setError(
