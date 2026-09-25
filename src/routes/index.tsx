@@ -351,12 +351,15 @@ function Contact() {
             <br />
             zusammen<span className="text-primary">arbeiten</span>
           </h2>
-          <p className="text-base font-light leading-relaxed text-muted-foreground">
-            Du planst eine Show, ein Shooting oder eine Kampagne? Schreib mir
-            kurz zu deinem Anlass — ich melde mich in der Regel innerhalb von 24
-            Stunden.
-          </p>
           <p className="mt-8 text-sm text-muted-foreground">
+            <a
+              href="mailto:melissa@hermissa.ch"
+              className="transition-colors hover:text-primary"
+            >
+              Email — melissa@hermissa.ch
+            </a>
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
             <a
               href="https://instagram.com/hermissamakeup"
               target="_blank"
