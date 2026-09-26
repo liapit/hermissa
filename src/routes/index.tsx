@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 
 import heroImg from "@/assets/hero.jpg";
-import wordmarkGoldImg from "@/assets/hermissa-wordmark-gold.png";
 import logoImg from "@/assets/hm-logo.png";
 import wordmarkImg from "@/assets/hermissa-wordmark.png";
 import about from "@/assets/about.jpg";
@@ -152,15 +151,11 @@ function Hero() {
         <div className="absolute inset-0 bg-background/10" />
         <div className="absolute inset-x-0 bottom-0 h-[32%] bg-[linear-gradient(to_top,rgba(10,8,6,0.45)_0%,rgba(10,8,6,0.15)_55%,transparent_100%)]" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center sm:pb-20">
-          <h1 className="flex items-center">
-            <img
-              src={wordmarkGoldImg}
-              alt="HERMISSA"
-              width={1402}
-              height={232}
-              className="h-12 w-auto sm:h-16 lg:h-20"
-              style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.85)) drop-shadow(0 0 2px rgba(0,0,0,0.6))" }}
-            />
+          <h1
+            className="text-2xl font-medium uppercase tracking-[0.45em] text-[#e6d9ae] sm:text-4xl sm:tracking-[0.5em] lg:text-5xl"
+            style={{ textShadow: "0 1px 14px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.7)" }}
+          >
+            Hermissa
           </h1>
           <p className="mt-6 text-[0.65rem] font-medium tracking-[0.45em] uppercase text-[#e6d9ae] sm:text-xs sm:tracking-[0.5em]" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.7)" }}>
             Professional Makeup Artist
